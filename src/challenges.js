@@ -3,17 +3,17 @@ function compareTrue(a, b) {
   // seu código aqui
   if (a === true && b === true) {
     return true;
-    console.log(true);
   } else {
     return false;
-    console.log(false);
   }
 };
 
 // Desafio 2
-function calcArea() {
+function calcArea(base, height) {
   // seu código aqui
-}
+  let area = (base * height) / 2;
+  return area;
+};
 
 // Desafio 3
 function splitSentence() {
@@ -53,7 +53,7 @@ function decode() {
   // seu código aqui
 }
 
-module.exports = {
+/*module.exports = {
   calcArea,
   catAndMouse,
   compareTrue,
@@ -64,4 +64,7 @@ module.exports = {
   footballPoints,
   highestCount,
   splitSentence,
-};
+};*/
+
+
+
