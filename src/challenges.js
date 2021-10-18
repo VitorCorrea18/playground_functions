@@ -59,16 +59,57 @@ function highestCount(num) {
     }
   }
   return count;
-}
+};
 
 // Desafio 7
-function catAndMouse(cat1, cat2, mouse) {
+function catAndMouse(mouse, cat1, cat2) {
   // seu código aqui
-}
+  if ((cat1 - mouse) < (cat2 - mouse)) {
+    return 'cat2';
+  } else if ((mouse -cat1) > (mouse - cat2)) {
+    return 'cat1';
+  } else {
+    return 'os gatos trombam e o rato foge';
+  }
+};
 
 // Desafio 8
-function fizzBuzz() {
+function fizzBuzz(entry) {
   // seu código aqui
+  let myArray = [];
+  let div3 = false;
+  let div5 = false;
+  let divN = false;
+
+  for (indexEntry = 0; indexEntry < entry.length; indexEntry += 1) {
+    
+    for (i = 2; i < entry[indexEntry]; i += 1) {
+      
+      if (entry[indexEntry] % i === 0) {
+        if (i === 3) {
+          div3 = true;
+        } else if (i === 5) {
+          div5 = true;
+        } else {
+          divN = true;
+        } 
+      }
+    }  
+      if (div3 === false && div5 ===false) {
+        myArray.push('bug!');
+      } else if (div3 === true && div5 === true) {
+        myArray.push('fizzBuzz');
+      } else if (div3 === true) {
+        myArray.push('fizz');
+      } else if (div5 === true) {
+        myArray.push('buzz');
+      }
+      
+      div3 = false;
+      div5 = false;
+      divN = false;
+  }
+  return myArray;
 }
 
 // Desafio 9
