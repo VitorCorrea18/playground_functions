@@ -47,13 +47,13 @@ function highestCount(num) {
   let highN = num[0];
   let count = 0;
   //primeiro for define o numero mais alto.
-  for (i = 0; i < num.length; i +=1) {
+  for (let i = 0; i < num.length; i +=1) {
     if (num[i] > highN) {
       highN = num[i];
     }
   }
   //segundo for conta quantas vezes o numero é repetido.
-  for (i = 0; i < num.length; i += 1) {
+  for (let i = 0; i < num.length; i += 1) {
     if (num[i] === highN) {
       count++;
     }
@@ -81,9 +81,9 @@ function fizzBuzz(entry) {
   let div5 = false;
   let divN = false;
 
-  for (indexEntry = 0; indexEntry < entry.length; indexEntry += 1) {
+  for (let indexEntry = 0; indexEntry < entry.length; indexEntry += 1) {
     
-    for (i = 2; i < entry[indexEntry]; i += 1) {
+    for (let i = 2; i < entry[indexEntry]; i += 1) {
       
       if (entry[indexEntry] % i === 0) {
         if (i === 3) {
@@ -113,12 +113,29 @@ function fizzBuzz(entry) {
 }
 
 // Desafio 9
-function encode() {
+function encode(entrada) {
   // seu código aqui
-}
-function decode() {
+  entrada = entrada.replace(/a/g, 1);
+  entrada = entrada.replace(/e/g, 2);
+  entrada = entrada.replace(/i/g, 3);
+  entrada = entrada.replace(/o/g, 4);
+  entrada = entrada.replace(/u/g, 5);
+
+  return entrada;
+};
+function decode(entrada) {
   // seu código aqui
-}
+  entrada = entrada.replace(/1/g, 'a');
+  entrada = entrada.replace(/2/g, 'e');
+  entrada = entrada.replace(/3/g, 'i');
+  entrada = entrada.replace(/4/g, 'o');
+  entrada = entrada.replace(/5/g, 'u');
+
+  return entrada;
+};
+
+//O desafio 9 eu resolvi consultando este link https://www.w3schools.com/jsref/jsref_replace.asp.
+//Aprendendo o metodo .replace(); Adorando este projeto, já são dois métodos novos que aprendi!
 
 module.exports = {
   calcArea,
@@ -132,6 +149,7 @@ module.exports = {
   highestCount,
   splitSentence,
 };
+
 
 
 
