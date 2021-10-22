@@ -27,7 +27,7 @@ function splitSentence(sentence) {
 function concatName(entrada) {
   // seu código aqui
   let lastName = entrada.length - 1;
-  let name = entrada[lastName] + ', ' + entrada[0];
+  let name = entrada[lastName] + entrada[0];
   return name;
 }
 
@@ -134,8 +134,8 @@ function decode(entrada) {
   return entrada;
 }
 
-//O desafio 9 eu resolvi consultando este link https://www.w3schools.com/jsref/jsref_replace.asp.
-//Aprendendo o metodo .replace(); Adorando este projeto, já são dois métodos novos que aprendi!
+//  O desafio 9 eu resolvi consultando este link https://www.w3schools.com/jsref/jsref_replace.asp.
+//  Aprendendo o metodo .replace(); Adorando este projeto, já são dois métodos novos que aprendi!
 
 module.exports = {
   calcArea,
