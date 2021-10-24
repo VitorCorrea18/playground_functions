@@ -1,5 +1,13 @@
 // Desafio 10
 function techList(entry, name) {
+  let output = [];
+  for (let i of entry) {
+    let obj = {
+      tech: i,
+      name: name
+    };
+    output.push(obj);
+  }
 
 }
 
@@ -67,8 +75,22 @@ function triangleCheck(lineA, lineB, lineC) {
 }
 
 // Desafio 13
-function hydrate() {
-  // seu código aqui
+function hydrate(qntDrinks) {
+  let nDrinks = qntDrinks.match(/[1-9]/g);
+  let nWater = nDrinks.map((i) => Number(i));
+  let qntWater = 0;
+
+  for(let i = 0; i < nWater.length; i += 1){
+      qntWater += nWater[i];
+  }
+
+  if(qntWater === 1) {
+    return qntWater + ' copo de água';
+  } else {
+    return qntWater + ' copos de água';
+  }
+
+  
 }
 
 module.exports = {
