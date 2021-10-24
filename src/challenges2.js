@@ -31,6 +31,10 @@ function generatePhoneNumber(numbers) {
     if (validnumber === false) {
       return 'não é possível gerar um número de telefone com esses valores';
     } else {
+
+      /* Confesso que estava empacado aqui, estava tentando gerar a string phoneNumber com loops e voltava erro, ate que vi o codigo do D'mitri com uma dúvida no slack,
+      ai caiu a ficha que como eram apenas 11 elementos no array eu poderia fazer manualmente assim.*/
+
       let phoneNumber = '(' + numbers[0] + numbers[1] + ') ' + numbers[2] + numbers[3] + numbers[4] + numbers[5] + numbers[6] + '-' + numbers[7] + numbers[8] + numbers[9] + numbers[10];
       return phoneNumber;
       }
@@ -38,8 +42,28 @@ function generatePhoneNumber(numbers) {
 }
 
 // Desafio 12
-function triangleCheck() {
-  // seu código aqui
+function triangleCheck(lineA, lineB, lineC) {
+  let validA = false;
+  let validB = false;
+  let validC = false;
+
+  if (lineA < (lineB + lineC)) {
+      validA = true;
+  }
+
+  if (lineB < (lineA + lineC)) {
+      validB = true;
+  }
+
+  if (lineC < (lineA + lineB)) {
+      validC = true;
+  }
+
+  if (validA === true && validB === true && validC === true) {
+      return true;
+  } else {
+      return false;
+  }
 }
 
 // Desafio 13
