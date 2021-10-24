@@ -8,7 +8,7 @@ function techList(entry, name) {
     };
     output.push(obj);
   }
-
+  console.log(output);
 }
 
 // Desafio 11
