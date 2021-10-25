@@ -12,7 +12,7 @@ function calcArea(base, height) {
   // seu código aqui
   let area = (base * height) / 2;
   return area;
-}
+};
 
 // Desafio 3
 function splitSentence(sentence) {
@@ -27,9 +27,9 @@ function splitSentence(sentence) {
 function concatName(entrada) {
   // seu código aqui
   let lastName = entrada.length - 1;
-  let name = entrada[lastName] + entrada[0];
+  let name = `${entrada[lastName]}, ${entrada[0]}`;
   return name;
-}
+};
 
 // Desafio 5
 function footballPoints(wins, ties) {
@@ -62,14 +62,12 @@ function highestCount(num) {
 
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
-  // seu código aqui
-  if ((cat1 - mouse) < (cat2 - mouse)) {
-    return 'cat2';
-  } else if ((mouse - cat1) > (mouse - cat2)) {
-    return 'cat1';
-  } else {
-    return 'os gatos trombam e o rato foge';
-  }
+  let gat1 = mouse - cat1;
+  let gat2 = mouse - cat2;
+
+  if (Math.abs(gat1) > Math.abs(gat2)) { return 'cat2'; }
+  else if (Math.abs(gat1) < Math.abs(gat2)) { return 'cat1'; }
+  else { return 'os gatos trombam e o rato foge'; }
 }
 
 // Desafio 8
@@ -78,37 +76,28 @@ function fizzBuzz(entry) {
   let myArray = [];
   let div3 = false;
   let div5 = false;
-  let divN = false;
-
   for (let indexEntry = 0; indexEntry < entry.length; indexEntry += 1) {
-
-  for (let i = 2; i < entry[indexEntry]; i += 1) {
-
-  if (entry[indexEntry] % i === 0) {
-  if (i === 3) {
-    div3 = true;
-  } else if (i === 5) {
-    div5 = true;
-  } else {
-    divN = true;
-  }
+    for (let i = 2; i < entry[indexEntry]; i += 1) {
+      if (entry[indexEntry] % i === 0) {
+        if (i === 3) {
+          div3 = true;
+        } else if (i === 5) {
+          div5 = true;
+        }
       }
     }
-  if (div3 === false && div5 === false) {
-    myArray.push('bug!');
-  } else if (div3 === true && div5 === true) {
-    myArray.push('fizzBuzz');
-  } else if (div3 === true) {
-    myArray.push('fizz');
-  } else if (div5 === true) {
-    myArray.push('buzz');
-  }
-
-  div3 = false;
-  div5 = false;
-  divN = false;
-  }
-  return myArray;
+    if (div3 === false && div5 === false) {
+      myArray.push('bug!');
+    } else if (div3 === true && div5 === true) {
+      myArray.push('fizzBuzz');
+    } else if (div3 === true) {
+      myArray.push('fizz');
+    } else if (div5 === true) {
+      myArray.push('buzz');
+      }
+    div3 = false;
+    div5 = false;
+  } return myArray;
 }
 
 // Desafio 9

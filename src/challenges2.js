@@ -1,5 +1,6 @@
 // Desafio 10
 function techList(entry, name) {
+  if (entry.length === 0) { return 'Vazio!'; }
   let output = [];
   for (let i of entry) {
     let obj = {
@@ -8,13 +9,19 @@ function techList(entry, name) {
     };
     output.push(obj);
   }
-  console.log(output);
+  // referencia para função de sort : https://stackoverflow.com/questions/6712034/sort-array-by-firstname-alphabetically-in-javascript
+  output.sort(function (a, b) {
+    if (a.tech < b.tech) { return -1; }
+    if (a.tech > b.tech) { return 1; }
+    return 0;
+  });
+  return output;
 }
 
 // Desafio 11
 function generatePhoneNumber(numbers) {
   let validnumber = true
-  
+
   if (numbers.length !== 11) {
     return 'Array com tamanho incorreto.';
   } else {
@@ -29,11 +36,11 @@ function generatePhoneNumber(numbers) {
       let count = 0;
       for (let n in numbers) {
         if (numbers[i] === numbers[n])
-        count += 1
+          count += 1
       }
-      if ( count >= 3) {
-      validnumber = false;
-      break;
+      if (count >= 3) {
+        validnumber = false;
+        break;
       }
     }
     if (validnumber === false) {
@@ -45,8 +52,8 @@ function generatePhoneNumber(numbers) {
 
       let phoneNumber = '(' + numbers[0] + numbers[1] + ') ' + numbers[2] + numbers[3] + numbers[4] + numbers[5] + numbers[6] + '-' + numbers[7] + numbers[8] + numbers[9] + numbers[10];
       return phoneNumber;
-      }
     }
+  }
 }
 
 // Desafio 12
@@ -56,21 +63,21 @@ function triangleCheck(lineA, lineB, lineC) {
   let validC = false;
 
   if (lineA < (lineB + lineC)) {
-      validA = true;
+    validA = true;
   }
 
   if (lineB < (lineA + lineC)) {
-      validB = true;
+    validB = true;
   }
 
   if (lineC < (lineA + lineB)) {
-      validC = true;
+    validC = true;
   }
 
   if (validA === true && validB === true && validC === true) {
-      return true;
+    return true;
   } else {
-      return false;
+    return false;
   }
 }
 
@@ -80,17 +87,17 @@ function hydrate(qntDrinks) {
   let nWater = nDrinks.map((i) => Number(i));
   let qntWater = 0;
 
-  for(let i = 0; i < nWater.length; i += 1){
-      qntWater += nWater[i];
+  for (let i = 0; i < nWater.length; i += 1) {
+    qntWater += nWater[i];
   }
 
-  if(qntWater === 1) {
+  if (qntWater === 1) {
     return qntWater + ' copo de água';
   } else {
     return qntWater + ' copos de água';
   }
 
-  
+
 }
 
 module.exports = {
