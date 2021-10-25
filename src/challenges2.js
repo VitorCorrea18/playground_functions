@@ -5,7 +5,7 @@ function techList(entry, name) {
   for (let i of entry) {
     let obj = {
       tech: i,
-      name: name
+      name,
     };
     output.push(obj);
   }
@@ -20,40 +20,37 @@ function techList(entry, name) {
 
 // Desafio 11
 function generatePhoneNumber(numbers) {
-  let validnumber = true
+  let validnumber = true;
 
   if (numbers.length !== 11) {
     return 'Array com tamanho incorreto.';
-  } else {
-    for (let i = 0; i < numbers.length; i += 1) {
-      if (numbers[i] >= 0 && numbers[i] <= 9) {
-        validnumber = true;
-      } else {
-        validnumber = false;
-        break;
-      }
-
-      let count = 0;
-      for (let n in numbers) {
-        if (numbers[i] === numbers[n])
-          count += 1
-      }
-      if (count >= 3) {
-        validnumber = false;
-        break;
-      }
-    }
-    if (validnumber === false) {
-      return 'não é possível gerar um número de telefone com esses valores';
+  }
+  for (let i = 0; i < numbers.length; i += 1) {
+    if (numbers[i] >= 0 && numbers[i] <= 9) {
+      validnumber = true;
     } else {
+      validnumber = false;
+      break;
+    }
 
-      /* Confesso que estava empacado aqui, estava tentando gerar a string phoneNumber com loops e voltava erro, ate que vi o codigo do D'mitri com uma dúvida no slack,
-      ai caiu a ficha que como eram apenas 11 elementos no array eu poderia fazer manualmente assim.*/
-
-      let phoneNumber = '(' + numbers[0] + numbers[1] + ') ' + numbers[2] + numbers[3] + numbers[4] + numbers[5] + numbers[6] + '-' + numbers[7] + numbers[8] + numbers[9] + numbers[10];
-      return phoneNumber;
+    let count = 0;
+    for (let n in numbers) {
+      if (numbers[i] === numbers[n]) count += 1;
+    }
+    if (count >= 3) {
+      validnumber = false;
+      break;
     }
   }
+  if (validnumber === false) {
+    return 'não é possível gerar um número de telefone com esses valores';
+  }
+
+  /* Confesso que estava empacado aqui, estava tentando gerar a string phoneNumber com loops e voltava erro, ate que vi o codigo do D'mitri com uma dúvida no slack,
+      ai caiu a ficha que como eram apenas 11 elementos no array eu poderia fazer manualmente assim. */
+
+  let phoneNumber = `(${numbers[0]}${numbers[1]}) ${numbers[2]}${numbers[3]}${numbers[4]}${numbers[5]}${numbers[6]}-${numbers[7]}${numbers[8]}${numbers[9]}${numbers[10]}`;
+  return phoneNumber;
 }
 
 // Desafio 12
@@ -76,9 +73,8 @@ function triangleCheck(lineA, lineB, lineC) {
 
   if (validA === true && validB === true && validC === true) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 // Desafio 13
@@ -92,12 +88,9 @@ function hydrate(qntDrinks) {
   }
 
   if (qntWater === 1) {
-    return qntWater + ' copo de água';
-  } else {
-    return qntWater + ' copos de água';
+    return `${qntWater} copo de água`;
   }
-
-
+  return `${qntWater} copos de água`;
 }
 
 module.exports = {

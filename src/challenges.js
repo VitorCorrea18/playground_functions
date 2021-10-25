@@ -12,7 +12,7 @@ function calcArea(base, height) {
   // seu código aqui
   let area = (base * height) / 2;
   return area;
-};
+}
 
 // Desafio 3
 function splitSentence(sentence) {
@@ -29,7 +29,7 @@ function concatName(entrada) {
   let lastName = entrada.length - 1;
   let name = `${entrada[lastName]}, ${entrada[0]}`;
   return name;
-};
+}
 
 // Desafio 5
 function footballPoints(wins, ties) {
@@ -46,15 +46,15 @@ function highestCount(num) {
   let highN = num[0];
   let count = 0;
   //  primeiro for define o numero mais alto.
-  for (let i = 0; i < num.length; i += 1) {
+  for (let i = 1; i < num.length; i += 1) {
     if (num[i] > highN) {
       highN = num[i];
     }
-  }
-  //  segundo for conta quantas vezes o numero é repetido.
-  for (let i = 0; i < num.length; i += 1) {
-    if (num[i] === highN) {
-      count += 1;
+    //  segundo for conta quantas vezes o numero é repetido.
+    for (let i = 0; i < num.length; i += 1) {
+      if (num[i] === highN) {
+        count += 1;
+      }
     }
   }
   return count;
@@ -65,9 +65,12 @@ function catAndMouse(mouse, cat1, cat2) {
   let gat1 = mouse - cat1;
   let gat2 = mouse - cat2;
 
-  if (Math.abs(gat1) > Math.abs(gat2)) { return 'cat2'; }
-  else if (Math.abs(gat1) < Math.abs(gat2)) { return 'cat1'; }
-  else { return 'os gatos trombam e o rato foge'; }
+  if (Math.abs(gat1) > Math.abs(gat2)) {
+    return 'cat2';
+  }
+  if (Math.abs(gat1) < Math.abs(gat2)) {
+    return 'cat1';
+  } return 'os gatos trombam e o rato foge';
 }
 
 // Desafio 8
@@ -94,7 +97,7 @@ function fizzBuzz(entry) {
       myArray.push('fizz');
     } else if (div5 === true) {
       myArray.push('buzz');
-      }
+    }
     div3 = false;
     div5 = false;
   } return myArray;
